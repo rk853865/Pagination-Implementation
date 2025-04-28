@@ -33,23 +33,23 @@ function App() {
 
   const handleNext = () => {
     if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
+      setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
   const handlePrevious = () => {
     if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
+      setCurrentPage((prevPage) => prevPage - 1);
     }
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Employee Data</h1>
+    <div style={{ padding: "20px", maxWidth: "1000px", margin: "0 auto" }}>
+      <h1 style={{ textAlign: "center" }}>Employee Data</h1>
 
       <table border="1" width="100%" cellPadding="10" style={{ borderCollapse: "collapse" }}>
         <thead>
-          <tr>
+          <tr style={{ backgroundColor: "#f2f2f2" }}>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
@@ -69,11 +69,13 @@ function App() {
         </tbody>
       </table>
 
-      <div style={{ marginTop: "20px", display: "flex", justifyContent: "center", gap: "10px" }}>
+      <div style={{ marginTop: "20px", display: "flex", justifyContent: "center", alignItems: "center", gap: "10px" }}>
         <button onClick={handlePrevious} disabled={currentPage === 1}>
           Previous
         </button>
+
         <span>Page {currentPage} of {totalPages}</span>
+
         <button onClick={handleNext} disabled={currentPage === totalPages}>
           Next
         </button>
@@ -83,3 +85,4 @@ function App() {
 }
 
 export default App;
+
